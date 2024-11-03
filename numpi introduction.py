@@ -46,7 +46,7 @@ print(np.random.permutation(r))
 print(np.random.permutation(r))
 
 #array of random numbers
-nu = np.random.randint(0, 10, 5)
+nu = np.random.randint(0, 10, 10)
 print(nu)
 
 anu = np.random.randint(1, 50, (2,4))
@@ -58,5 +58,20 @@ print(anum)
 print(anu + anum)
 
 #reshape array
-print(anu.reshape(6, 1))
+print(anu.reshape(8, 1))
 print(anu.reshape(8))
+
+#slicing array
+print(nu)
+print(nu[2:8])
+print(nu[:8])
+print(nu[2:])
+print(nu[0::2])
+print(nu[::-1])
+
+#slicing with selected index
+print(nu[[0,2,6,8]])
+
+#conditional slicing
+print(nu[nu % 2 == 0])
+print(nu[nu > 5])
