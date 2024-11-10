@@ -75,3 +75,10 @@ print(nu[[0,2,6,8]])
 #conditional slicing
 print(nu[nu % 2 == 0])
 print(nu[nu > 5])
+
+#2D array slicing
+an = np.random.randint(1, 50, (5,4))
+print(an)
+print(an[1: 4, 1: 4])
+
+print(an[an % 2 != 0])
