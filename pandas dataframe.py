@@ -21,3 +21,25 @@ print(student_df.info())
 
 #statistical summary
 print(student_df.describe())
+
+#reading data from csv
+titanicdf = pd.read_csv("titanic.csv")
+print(titanicdf.info())
+print(titanicdf)
+#number of rows from the start, default is 5
+print(titanicdf.head(2))
+print(titanicdf.tail(4))
+print(titanicdf["Name"])
+
+#Find the maximum and the minimum age among the passengers.
+print(titanicdf["Age"].max())
+print(titanicdf["Age"].min())
+
+#filtering records
+print(titanicdf[titanicdf["Age"] < 10])
+print(titanicdf[titanicdf["Pclass"] == 1])
+print(titanicdf[(titanicdf["Pclass"] == 3) & (titanicdf["Age"] < 18)])
+print(titanicdf[(titanicdf["Sex"] == "Female") | (titanicdf["Age"] > 13)])
+
+#only few columns
+print(titanicdf[["Age", "Pclass", "Survived"]])
