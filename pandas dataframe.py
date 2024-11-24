@@ -43,3 +43,33 @@ print(titanicdf[(titanicdf["Sex"] == "Female") | (titanicdf["Age"] > 13)])
 
 #only few columns
 print(titanicdf[["Age", "Pclass", "Survived"]])
+
+#slicing
+#index based
+print(titanicdf.iloc[2:4, 1:4])
+
+#conditional slicing
+print(titanicdf.loc[titanicdf["Age"] < 18, ["Name", "Sex"]])
+
+#changing values
+titanicdf.iloc[0:3, 2] = ["gvfr", "gtrf", "yhgtf"]
+print(titanicdf.iloc[0:5, 0:5])
+
+#add a column
+titanicdf["f"] = 0.5 * titanicdf["Fare"]
+print(titanicdf.head())
+
+#renaming columns
+print(titanicdf.columns)
+titanicdf.rename(columns = {"Pclass": "Class", "f": "Discountfare"}, inplace = True)
+print(titanicdf.columns)
+
+#saving to csv file
+titanicdf.to_csv("pandas dataframe.csv")
+
+#sorting
+print(titanicdf.sort_values(by = "Age")[["Name", "Age"]])
+
+#replace values
+titanicdf["Sex"].replace({"male": "M", "female": "F"}, inplace = True)
+print(titanicdf["Sex"])
