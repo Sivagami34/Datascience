@@ -73,3 +73,18 @@ print(titanicdf.sort_values(by = "Age")[["Name", "Age"]])
 #replace values
 titanicdf["Sex"].replace({"male": "M", "female": "F"}, inplace = True)
 print(titanicdf["Sex"])
+
+#Grouping data
+c = titanicdf.groupby("Class")
+print(c.count())
+print(c["Fare"].mean())
+f = titanicdf.groupby(["Class", "Sex"])
+print(f.count())
+
+#aggregation funtions on multiple columns
+print(titanicdf.agg({"Age": ["min", "max"], "Fare": "mean", "Survived": "count"}))
+
+#operations on text data
+print(titanicdf["Name"].str.lower())
+titanicdf["lastn"] = titanicdf["Name"].str.split().str.get(-1)
+print(titanicdf.head(10))
