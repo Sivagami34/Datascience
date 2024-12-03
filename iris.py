@@ -37,3 +37,15 @@ print(d.head(10))
 
 #Sort the dataset according to the petal lengths.
 print(d.sort_values(by = "petal_length"))
+
+#Find the mean, minimum and maximum of the petal length, petal width, sepal length and sepal width.
+print(d.agg({"petal_length": ["mean", "min", "max", "count"], "petal_width": ["mean", "min", "max", "count"], "sepal_length": ["mean", "min", "max"], "sepal_width": ["mean", "min", "max"]}))
+
+#Display the average petal length, petal width, sepal length and sepal width for each species of the iris flower
+f = d.groupby("species")
+print(f.mean()[["sepal_length", "sepal_width", "petal_length", "petal_width"]])
+
+#Change the species names to uppercase.
+d["species"] = d["species"].str.upper()
+#print(d["species"].str.upper())
+print(d.head(10))
