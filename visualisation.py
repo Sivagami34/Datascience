@@ -21,3 +21,16 @@ plt.plot(x, x**2, label = "x**2")
 plt.plot(x, x**3, label = "x**3")
 plt.legend()
 plt.show()
+
+#bar plot
+plt.bar([1, 3, 5, 7], [45, 57, 67, 23])
+plt.show()
+
+#multiple bar graph
+plt.bar([1, 3, 5, 7], [21, 43, 67, 34])
+plt.bar([2, 4, 6, 8], [20, 34, 76, 44])
+plt.show()
+
+#categorical data with bar plot
+plt.bar(["male", "female"], [12, 15])
+plt.show()
