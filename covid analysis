@@ -1,0 +1,13 @@
+import pandas as pd
+df = pd.read_csv("covid_data.csv")
+df.info()
+print(df)
+o = df[["Country_Region", "Province_State", "Confirmed", "Recovered", "Deaths"]]
+print(o)
+print(o.isnull().sum())
+o["Province_State"].fillna("", inplace = True)
+print(o.isnull().sum())
+#top 10 most affected countries
+print(o["Country_Region"].value_counts())
+g = o.groupby("Country_Region")
+print(g.sum())
