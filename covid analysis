@@ -10,4 +10,16 @@ print(o.isnull().sum())
 #top 10 most affected countries
 print(o["Country_Region"].value_counts())
 g = o.groupby("Country_Region")
-print(g.sum())
+sum = g.sum()
+s = sum.sort_values(by = "Confirmed", ascending = False)
+top10countries = s.head(10)
+print(top10countries)
+import matplotlib.pyplot as plt
+plt.bar(top10countries.index,top10countries["Confirmed"], 0.2)
+plt.show()
+#scatter plot for the 10 countries with highest recoveries
+plt.scatter(top10countries.index, top10countries["Recovered"], s = [1, 5, 8, 3, 9, 2, 6, 7, 4, 4])
+plt.xlabel("Country")
+plt.ylabel("Recovered")
+#print(top10countries["Recovered"] // top10countries["Recovered"].min() * 10)
+plt.show()
