@@ -24,3 +24,24 @@ s = g["Total"].sum()
 print(s)
 plt.plot(s.index, s)
 plt.show()
+
+#per person purchase per day
+m = g["Total"].mean()
+print(m)
+plt.plot(m.index, m)
+plt.show()
+
+#Find the different payment methods. 
+#Show the percentage invoices settled with each of the payment method.
+p = df.groupby("Payment")
+c = p["Invoice ID"].count()
+print(c)
+plt.pie(c, labels = c.index, autopct='%1.1f%%')
+plt.show()
+
+#Find the quantity of items sold in each product line. Visualize the result.
+pl = df.groupby("Product line")
+q = pl["Quantity"].sum()
+print(q)
+plt.bar(q.index, q)
+plt.show()
