@@ -26,3 +26,17 @@ plt.plot(ma.index, ma["Cholesterol"], label = "Cholesterol")
 plt.plot(ma.index, ma["BloodPressure"], label = "Blood Pressure")
 plt.legend()
 plt.show()
+
+lc = ["Smoker", "AlcoholConsumption", "PhysicalActivity", "Diet"]
+for c in lc:
+    s = df[c].value_counts()
+    print(s)
+    g = df.groupby([c, "Outcome"])
+    gc = g.count()
+    print(gc)
+    labels = []
+    for i in gc.index:
+        labels.append(str(i[0]) + i[1])
+    plt.bar(labels, gc["Age"])
+    plt.title(c + "wise Outcome")
+    plt.show()
